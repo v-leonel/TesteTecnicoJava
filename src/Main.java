@@ -1,6 +1,46 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
 public class Main {
+
     public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Informe o valor total: ");
+        double valorTotal = scan.nextDouble();
+
+        System.out.print("Informe o número de parcelas: ");
+        int quantParcelas = scan.nextInt();
+
+        if(quantParcelas <= 5){
+            System.out.printf("Valor com desconto: %.2f", descontoCompra(valorTotal, quantParcelas));
+        }else {
+            System.out.println("Sem desconto aplicável!");
+        }
     }
+    public static double descontoCompra(double valorTotal, int quantParcelas) {
+        double porcentDesconto;
+
+        switch (quantParcelas) {
+            case 1:
+                porcentDesconto = 0.10;
+                break;
+            case 2: porcentDesconto = 0.08;
+                break;
+            case 3: porcentDesconto = 0.06;
+                break;
+            case 4: porcentDesconto = 0.04;
+                break;
+            case 5: porcentDesconto = 0.02;
+                break;
+            default:
+                porcentDesconto = 0.0;
+                break;
+        }
+
+        double valorDesconto = valorTotal * porcentDesconto;
+        double valorcomDesconto = valorTotal - valorDesconto;
+
+        return valorcomDesconto;
+    }
+
 }
