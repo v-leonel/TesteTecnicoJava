@@ -11,8 +11,10 @@ public class Main {
         System.out.print("Informe o número de parcelas: ");
         int quantParcelas = scan.nextInt();
 
+        double valorDesconto = descontoCompra(valorTotal, quantParcelas);
+
         if(quantParcelas <= 5){
-            System.out.printf("Valor com desconto: %.2f", descontoCompra(valorTotal, quantParcelas));
+            System.out.printf("Valor com desconto: %.2f", valorDesconto);
         }else {
             System.out.println("Sem desconto aplicável!");
         }
